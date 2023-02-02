@@ -1,4 +1,4 @@
-const modal = document.querySelector(".modal-content"),
+const modal = document.querySelector(".modal"),
   btn = document.querySelector(".btn"),
   close = document.querySelector(".close");
 
@@ -8,13 +8,11 @@ btn.addEventListener("click", (e) => {
   openModal();
 });
 
-// close.addEventListener("click", () => {
-//   closeModal();
-// });
-
-modal.addEventListener("click", () => {
-  closeModal();
-  console.log("Teste");
+modal.addEventListener("click", (e) => {
+  const modalContent = e.target.classList;
+  if (modalContent.contains("modal") || modalContent.contains("close")) {
+    closeModal();
+  }
 });
 
 // OPEN MODAL
